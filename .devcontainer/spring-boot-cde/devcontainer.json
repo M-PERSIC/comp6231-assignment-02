@@ -1,0 +1,33 @@
+{
+    "name": "Spring Boot CDE",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+    "features": {
+        "ghcr.io/devcontainers/features/java:1": {
+            "version": "17",
+            "installMaven": true
+        },
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {
+            "version": "28.3.2-ubuntu24.04u1"
+		}
+    },
+    "customizations": {
+		"vscode": {
+			"extensions": [
+                "redhat.java",
+				"vmware.vscode-boot-dev-pack",
+                "ms-azuretools.vscode-docker"
+			]
+        }
+    },
+    "forwardPorts": [8000, 8100],
+	"portsAttributes": {
+		"8000": {
+			"label": "Fruit Month Price",
+			"requireLocalPort": true
+		},
+		"8100": {
+			"label": "Fruit Total Price",
+			"requireLocalPort": true
+		}
+	}
+}
