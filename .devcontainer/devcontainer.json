@@ -1,11 +1,11 @@
 {
-	"image": "mcr.microsoft.com/devcontainers/base:ubuntu:24.04",
+	"image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
 	"features" : {
 		"ghcr.io/devcontainers/features/go:1": {
 			"version": "1.24"
 		},
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {
-			"version": "20.10"
+			"version": "28.3.2-ubuntu24.04u1"
 		},
 		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
 			"version": "1.23"
