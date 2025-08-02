@@ -5,6 +5,7 @@
 		"ghcr.io/devcontainers/features/go:1": {
 			"version": "1.24"
 		},
+		"ghcr.io/devcontainers/features/github-cli:1": {},
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {
 			"version": "28.3.2-ubuntu24.04u1"
 		},
@@ -17,11 +18,12 @@
 			"extensions": [
 				"golang.Go",
 				"ms-azuretools.vscode-docker",
-				"ms-kubernetes-tools.vscode-kubernetes-tools"
+				"ms-kubernetes-tools.vscode-kubernetes-tools",
+				"bierner.github-markdown-preview"
 			]
 		}
 	},
-	"forwardPorts": [8000, 8100],
+	"forwardPorts": [8000, 8100, 8001],
 	"portsAttributes": {
 		"8000": {
 			"label": "Fruit Month Price",
@@ -30,6 +32,11 @@
 		"8100": {
 			"label": "Fruit Total Price",
 			"requireLocalPort": true
+		},
+		"8001": {
+			"label": "Alternative Test Port",
+			"requireLocalPort": true
 		}
-	}
+	},
+	"onCreateCommand": "gh extension install https://github.com/nektos/gh-act"
 }
