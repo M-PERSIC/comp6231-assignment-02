@@ -1,13 +1,15 @@
 name: release-go
 
 on:
-  pull_request:
   push:
+    tags:
+      - 'v*'
 
 permissions:
   contents: write
   packages: write
   attestations: write
+  id-token: write
 
 jobs:
   release-go:
@@ -32,14 +34,14 @@ jobs:
           go-version: '1.24'
       -
         name: Set Up Syft
-        uses: anchore/sbom-action/download-syft@latest 
+        uses: anchore/sbom-action/download-syft@0.20.4 
       -
         name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v6
         with:
           distribution: goreleaser
           version: v2
-          args: release --clean --snapshot
+          args: release
       - uses: actions/attest-build-provenance@v2
         with:
           subject-checksums: ./dist/checksums.txt
