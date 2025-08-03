@@ -34,7 +34,7 @@ jobs:
           go-version: '1.24'
       -
         name: Set Up Syft
-        uses: anchore/sbom-action/download-syft@0.20.4 
+        uses: anchore/sbom-action/download-syft@v0 
       -
         name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v6
