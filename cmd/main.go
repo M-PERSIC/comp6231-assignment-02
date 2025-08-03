@@ -50,7 +50,7 @@ func main() {
 		}
 	case "ftp":
 		//FruitTotalPrice microservice
-		ftpPort := os.Getenv("ftpPort")
+		ftpPort := os.Getenv("FTP_PORT")
 		if ftpPort == "" {
 			ftpPort = "8100"
 		}
@@ -70,5 +70,4 @@ func main() {
 	default:
 		log.Fatal("Incorrect flag (--fmp or --ftp only)!")
 	}
-
 }
