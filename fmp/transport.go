@@ -24,10 +24,9 @@ func StartFMPServer(service FruitMonthPriceService, port string) error {
 }
 
 // decodeFruitMonthPriceRequest decodes the HTTP request into the request struct
-func decodeFruitMonthPriceRequest(_ context.Context, r *http.Request) (interface{}, error) {
+func decodeFruitMonthPriceRequest(_ context.Context, r *http.Request) (any, error) {
 	path := strings.TrimPrefix(r.URL.Path, "/fruit-price/")
 	parts := strings.Split(path, "/")
-
 	if len(parts) != 4 || parts[0] != "fruit" || parts[2] != "month" {
 		return nil, fmt.Errorf("invalid URL format! (expected: /fruit-price/fruit/{fruit}/month/{month})")
 	}

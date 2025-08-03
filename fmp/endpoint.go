@@ -11,7 +11,7 @@ func MakeGetFruitPriceMonthEndpoint(service FruitMonthPriceService) endpoint.End
 		req := request.(FruitMonthPriceRequest)
 		resp, err := service.GetFruitPriceMonth(req.Fruit, req.Month)
 		if err != nil {
-			return FruitMonthPriceResponse{}, nil
+			return nil, err
 		}
 		return resp, nil
 	}

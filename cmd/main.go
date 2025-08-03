@@ -8,6 +8,7 @@ import (
 
 	"github.com/m-persic/comp6231-assignment-02/database"
 	"github.com/m-persic/comp6231-assignment-02/fmp"
+	"github.com/m-persic/comp6231-assignment-02/ftp"
 )
 
 func main() {
@@ -22,13 +23,12 @@ func main() {
 	} else {
 		microservice = "fmp"
 	}
-
 	switch microservice {
 	case "fmp":
 		//FruitMonthPrice microservice
-		fmp_port := os.Getenv("FMP_PORT")
-		if fmp_port == "" {
-			fmp_port = "8000"
+		fmpPort := os.Getenv("fmpPort")
+		if fmpPort == "" {
+			fmpPort = "8000"
 		}
 		db, err := database.InitDB()
 		if err != nil {
@@ -39,15 +39,32 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmp_svc := fmp.NewService(db, "fruit_prices", fmp_port)
-		err = fmp.StartFMPServer(fmp_svc, fmp_port)
+		fmpService := fmp.NewService(db, "fruit_prices", fmpPort)
+		err = fmp.StartFMPServer(fmpService, fmpPort)
 		if err != nil {
 			log.Fatal(err)
 		}
 	case "ftp":
-		fmt.Println("hello!")
+		//FruitTotalPrice microservice
+		ftpPort := os.Getenv("ftpPort")
+		if ftpPort == "" {
+			ftpPort = "8100"
+		}
+		fmpServiceUrl := os.Getenv("FMP_SERVICE_URL")
+		if fmpServiceUrl == "" {
+			fmpPort := os.Getenv("FMP_PORT")
+			if fmpPort == "" {
+				fmpPort = "8000"
+			}
+			fmpServiceUrl = fmt.Sprintf("http://localhost:%s", fmpPort)
+		}
+		ftpService := ftp.NewService(ftpPort, fmpServiceUrl)
+		err := ftp.StartFTPServer(ftpService, ftpPort)
+		if err != nil {
+			log.Fatal(err)
+		}
 	default:
-		log.Fatal("Incorrect flag (--fmp or --ftp allowed)!")
+		log.Fatal("Incorrect flag (--fmp or --ftp only)!")
 	}
 
 }
