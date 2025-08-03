@@ -10,3 +10,13 @@ builds:
       - linux
     goarch:
       - amd64
+dockers:
+  - image_templates:
+    - "ghcr.io/m-persic/{{ .ProjectName }}:latest"
+    - "ghcr.io/m-persic/{{ .ProjectName }}:{{ .Version }}"
+    ids:
+      - "comp6231-assignment-02"
+sboms:
+  - artifacts: archive
+checksum:
+  name_template: "checksums.txt"
