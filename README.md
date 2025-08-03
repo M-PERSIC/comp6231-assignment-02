@@ -1,7 +1,7 @@
 # COMP6231 Assignment 02 (Michael Persico)
 
 - **Project Name:** comp6231-assignment-02
-- **Programming Languages:** Go, DuckDB, Java (fallback), Typst (paper)
+- **Programming Languages:** Go, DuckDB, Java (fallback)
 - **Frameworks / Libraries:** go-kit, excelize, go-duckdb, Spring Boot Dev Tools (fallback), Spring Boot Actuator (fallback), Spring Web (fallback), Config Client (fallback)
 - **Database:** DuckDB, H2 (fallback)
 - **Source Control:** Git (GitHub)
