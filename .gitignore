@@ -71,3 +71,5 @@ buildNumber.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/maven,java,go
 
+# Added by goreleaser init:
+dist/

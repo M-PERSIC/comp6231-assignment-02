@@ -1,6 +1,7 @@
 package main
 
 import (
+	_ "embed"
 	"flag"
 	"fmt"
 	"log"
@@ -10,6 +11,9 @@ import (
 	"github.com/m-persic/comp6231-assignment-02/fmp"
 	"github.com/m-persic/comp6231-assignment-02/ftp"
 )
+
+//go:embed FMP.xlsx
+var excelData []byte
 
 func main() {
 	fmpFlag := flag.Bool("fmp", false, "")
@@ -35,7 +39,7 @@ func main() {
 			log.Fatal(err)
 		}
 		defer db.Close()
-		err = database.LoadExcelFile(db, "data/FMP.xlsx", "FruitPriceMonth", "fruit_prices")
+		err = database.LoadExcelData(db, excelData, "FruitPriceMonth", "fruit_prices")
 		if err != nil {
 			log.Fatal(err)
 		}
