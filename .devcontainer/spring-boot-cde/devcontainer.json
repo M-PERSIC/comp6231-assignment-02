@@ -17,7 +17,8 @@
                 "redhat.java",
 				"vmware.vscode-boot-dev-pack",
                 "ms-azuretools.vscode-docker",
-                "bierner.github-markdown-preview"
+                "bierner.github-markdown-preview",
+                "GitHub.vscode-github-actions"
 			]
         }
     },

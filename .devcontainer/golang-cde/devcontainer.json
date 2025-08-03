@@ -19,7 +19,8 @@
 				"golang.Go",
 				"ms-azuretools.vscode-docker",
 				"ms-kubernetes-tools.vscode-kubernetes-tools",
-				"bierner.github-markdown-preview"
+				"bierner.github-markdown-preview",
+				"GitHub.vscode-github-actions"
 			]
 		}
 	},
