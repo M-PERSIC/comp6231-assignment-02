@@ -41,7 +41,9 @@ jobs:
         with:
           distribution: goreleaser
           version: v2
-          args: release
+          args: release --cleam
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/attest-build-provenance@v2
         with:
           subject-checksums: ./dist/checksums.txt
