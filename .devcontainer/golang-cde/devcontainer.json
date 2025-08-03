@@ -39,5 +39,5 @@
 			"requireLocalPort": true
 		}
 	},
-	"onCreateCommand": "gh extension install https://github.com/nektos/gh-act && go install github.com/goreleaser/goreleaser/v2@latest"
+	"onCreateCommand": "gh extension install https://github.com/nektos/gh-act && go install github.com/goreleaser/goreleaser/v2@latest github.com/anchore/syft/cmd/syft@latest"
 }
