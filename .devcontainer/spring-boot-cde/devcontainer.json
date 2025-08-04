@@ -37,5 +37,6 @@
             "requireLocalPort": true
         }
 	},
-    "onCreateCommand": "gh extension install https://github.com/nektos/gh-act && apt update && apt install -y just"
+    "postCreateCommand": "sudo apt update && sudo apt install -y just && gh extension install https://github.com/nektos/gh-act",
+    "remoteUser": "vscode"
 }
