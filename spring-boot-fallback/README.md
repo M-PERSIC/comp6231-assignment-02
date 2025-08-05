@@ -26,14 +26,12 @@ docker run -d \
 # Custom ports
 docker run -d \
   --name fmp-service-custom \
-  -p 8001:8001 \
   --network host \
   -e SERVER_PORT=8001 \
   fruit-month-price-service:latest
 
 docker run -d \
   --name ftp-service-custom \
-  -p 8101:8101 \
   --network host \
   -e SERVER_PORT=8101 \
   -e FMP_PORT=8001 \
@@ -59,25 +57,13 @@ mvn spring-boot:run
 curl -X GET "http://localhost:8000/fruit-price/fruit/banana/month/jul" \
   -H "Accept: application/json"
 
-curl -X GET "http://localhost:8000/fruit-price/fruit/apple/month/jan" \
-  -H "Accept: application/json"
-
 curl -X GET "http://localhost:8100/fruit-total/fruit/banana/month/jul/quantity/10" \
-  -H "Accept: application/json"
-
-curl -X GET "http://localhost:8100/fruit-total/fruit/apple/month/jan/quantity/5" \
   -H "Accept: application/json"
 
 # Invalid requests
 curl -X GET "http://localhost:8000/fruit-price/fruit/mango/month/jan" \
   -H "Accept: application/json"
 
-curl -X GET "http://localhost:8000/fruit-price/fruit/banana/month/invalid" \
-  -H "Accept: application/json"
-
 curl -X GET "http://localhost:8100/fruit-total/fruit/banana/month/jul/quantity/-5" \
-  -H "Accept: application/json"
-
-curl -X GET "http://localhost:8100/fruit-total/fruit/banana/month/jul/quantity/0" \
   -H "Accept: application/json"
 ```
