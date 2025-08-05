@@ -11,7 +11,7 @@
 - **CI/CD:** GitHub Actions
 - **Repository Link:** [github.com/M-PERSIC/comp6231-assignment-02](https://github.com/M-PERSIC/comp6231-assignment-02.git)                                                                     
 
-The main dual microservice program is written in Go, with the Spring Boot fallback program (under the`spring-boot-fallback` directory) written in case the Go program does not meet the assignment instructions.
+The main dual microservice program is written in Go, with the Spring Boot fallback program (under the`spring-boot-fallback` directory) written in case the Go program does not meet the assignment requirements.
 
 # Installation
 
