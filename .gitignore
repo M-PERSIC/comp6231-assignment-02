@@ -73,3 +73,6 @@ buildNumber.properties
 
 # Added by goreleaser init:
 dist/
+
+# Go locally-built binary
+main
