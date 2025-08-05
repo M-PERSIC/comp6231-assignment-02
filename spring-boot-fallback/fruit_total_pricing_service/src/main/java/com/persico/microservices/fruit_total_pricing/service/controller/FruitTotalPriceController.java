@@ -2,10 +2,12 @@ package com.persico.microservices.fruit_total_pricing.service.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.persico.microservices.fruit_total_pricing.service.model.FruitTotal;
 
@@ -19,16 +21,36 @@ public class FruitTotalPriceController {
     private Environment environment;
     @Autowired
     private RestTemplate restTemplate;
+    
     @GetMapping("/fruit-total/fruit/{fruitName}/month/{monthName}/quantity/{quantity}")
     public FruitTotal calculateFruitTotal(
             @PathVariable String fruitName,
             @PathVariable String monthName,
-            @PathVariable BigDecimal quantity) {
+            @PathVariable BigDecimal quantity) {        
+        if (quantity.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new ResponseStatusException(
+                HttpStatus.BAD_REQUEST, 
+                "Quantity must be greater than zero. Provided: " + quantity
+            );
+        }        
+        if (fruitName == null || fruitName.trim().isEmpty()) {
+            throw new ResponseStatusException(
+                HttpStatus.BAD_REQUEST, 
+                "Fruit name cannot be empty"
+            );
+        }        
+        if (monthName == null || monthName.trim().isEmpty()) {
+            throw new ResponseStatusException(
+                HttpStatus.BAD_REQUEST, 
+                "Month name cannot be empty"
+            );
+        }
         String fmpPort = environment.getProperty("fmp.port", "8000");
         String fmpServiceUrl = "http://localhost:" + fmpPort + "/fruit-price/fruit/{fruit}/month/{month}";
         Map<String, String> uriVariables = new HashMap<>();
         uriVariables.put("fruit", fruitName);
         uriVariables.put("month", monthName);
+        
         FruitTotal fruitMonthPrice = restTemplate.getForObject(
                 fmpServiceUrl,
                 FruitTotal.class,
