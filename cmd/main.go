@@ -30,7 +30,7 @@ func main() {
 	switch microservice {
 	case "fmp":
 		//FruitMonthPrice microservice
-		fmpPort := os.Getenv("fmpPort")
+		fmpPort := os.Getenv("FMP_PORT")
 		if fmpPort == "" {
 			fmpPort = "8000"
 		}
