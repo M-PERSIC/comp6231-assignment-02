@@ -11,6 +11,8 @@
 - **CI/CD:** GitHub Actions
 - **Repository Link:** [github.com/M-PERSIC/comp6231-assignment-02](https://github.com/M-PERSIC/comp6231-assignment-02.git)                                                                     
 
+The main dual microservice program is written in Go, with the Spring Boot fallback program (under the`spring-boot-fallback` directory) written in case the Go program does not meet the assignment instructions.
+
 # Installation
 
 The latest linux binary is available at [github.com/M-PERSIC/comp6231-assignment-02/releases](https://github.com/M-PERSIC/comp6231-assignment-02/releases). To grab the latest binary:
@@ -135,7 +137,6 @@ curl -X GET "http://localhost:8000/fruit-price/fruit/banana/month/jul" \
 
 curl -X GET "http://localhost:8100/fruit-total/fruit/banana/month/jul/quantity/10" \
   -H "Accept: application/json"
-
 
 # Invalid requests
 curl -X GET "http://localhost:8000/fruit-price/fruit/mango/month/jan" \
