@@ -43,9 +43,13 @@ docker run -d \
 ## Maven Build
 
 ```bash
-cd fruit_month_price_service/ # or cd fruit_total_price_service/
+cd fruit_month_price_service/
 mvn clean compile
-mvn spring-boot:run # require separate terminals, one for each microservice
+mvn spring-boot:run
+# separate terminal
+cd fruit_total_pricing_service/
+mvn clean compile
+mvn spring-boot:run
 ```
 
 # Usage
