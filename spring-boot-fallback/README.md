@@ -1,13 +1,5 @@
 # Installation
 
-## Maven Build
-
-```bash
-cd fruit_month_price_service/ # or cd fruit_total_price_service/
-mvn clean compile
-mvn spring-boot:run
-```
-
 # Docker build (recommended)
 
 ```bash
@@ -33,17 +25,28 @@ docker run -d \
 
 # Custom ports
 docker run -d \
+  --name fmp-service-custom \
   -p 8001:8001 \
+  --network host \
   -e SERVER_PORT=8001 \
   fruit-month-price-service:latest
 
 docker run -d \
+  --name ftp-service-custom \
   -p 8101:8101 \
+  --network host \
   -e SERVER_PORT=8101 \
   -e FMP_PORT=8001 \
   fruit-total-price-service:latest
 ```
 
+## Maven Build
+
+```bash
+cd fruit_month_price_service/ # or cd fruit_total_price_service/
+mvn clean compile
+mvn spring-boot:run # require separate terminals, one for each microservice
+```
 
 # Usage
 
