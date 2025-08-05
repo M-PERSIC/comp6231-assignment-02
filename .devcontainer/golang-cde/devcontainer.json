@@ -37,7 +37,11 @@
 		"8001": {
 			"label": "Alternative Test Port",
 			"requireLocalPort": true
-		}
+		},
+		"8101": {
+            "label": "Alternative Test Port 2",
+            "requireLocalPort": true
+        }
 	},
 	"onCreateCommand": "gh extension install https://github.com/nektos/gh-act && go install github.com/goreleaser/goreleaser/v2@latest && go install github.com/anchore/syft/cmd/syft@latest"
 }

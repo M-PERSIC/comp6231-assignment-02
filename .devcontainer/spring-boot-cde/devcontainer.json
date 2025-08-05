@@ -35,6 +35,10 @@
         "8001": {
             "label": "Alternative Test Port",
             "requireLocalPort": true
+        },
+        "8101": {
+            "label": "Alternative Test Port 2",
+            "requireLocalPort": true
         }
 	},
     "postCreateCommand": "sudo apt update && sudo apt install -y just && gh extension install https://github.com/nektos/gh-act",
