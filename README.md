@@ -139,7 +139,7 @@ curl -X GET "http://localhost:8100/fruit-total/fruit/banana/month/jul/quantity/1
   -H "Accept: application/json"
 
 # Invalid requests
-curl -X GET "http://localhost:8000/fruit-price/fruit/mango/month/jan" \
+curl -X GET "http://localhost:8000/fruit-price/fruit/invalid/month/jan" \
   -H "Accept: application/json"
 
 curl -X GET "http://localhost:8100/fruit-total/fruit/banana/month/jul/quantity/-5" \
