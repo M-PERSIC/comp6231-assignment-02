@@ -3,6 +3,9 @@
 # Docker build (recommended)
 
 ```bash
+# If you are not already in the spring-boot-fallback directory
+cd spring-boot-fallback/
+
 # Build images
 cd fruit_month_price_service/
 docker build --no-cache -t fruit-month-price-service:latest .
