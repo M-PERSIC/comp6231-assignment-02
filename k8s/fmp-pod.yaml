@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: fmp-service
+  name: fmp-service
+  namespace: comp6231
+spec:
+  containers:
+  - env:
+    - name: FMP_PORT
+      value: "8000"
+    image: ghcr.io/m-persic/comp6231-assignment-02:1.0.1
+    name: fmp-service
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
